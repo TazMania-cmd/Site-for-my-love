@@ -8,7 +8,6 @@ export default function StarryNight() {
 
   useEffect(() => {
     const stars = containerRef.current?.querySelectorAll(".star");
-    
     if (stars) {
       stars.forEach((star) => {
         gsap.to(star, {
@@ -21,7 +20,6 @@ export default function StarryNight() {
       });
     }
 
-    // Brilho pulsante da lua amarelada
     gsap.to(moonRef.current, {
       boxShadow: "0 0 100px 30px rgba(255, 253, 208, 0.15)",
       duration: 5,
@@ -34,8 +32,11 @@ export default function StarryNight() {
   return (
     <section 
       ref={containerRef} 
-      className="h-screen bg-[#030108] flex flex-col items-center justify-center relative overflow-hidden"
+      className="relative h-screen bg-[#030108] flex flex-col items-center justify-center overflow-hidden"
     >
+      {/* CAMADA DE TRANSIÇÃO: Puxa a cor #f8f5ff da seção OurPlace */}
+      <div className="absolute top-0 left-0 w-full h-0 bg-gradient-to-b from-[#f8f5ff] to-transparent z-20 pointer-events-none" />
+
       {/* Estrelas distantes */}
       {[...Array(50)].map((_, i) => (
         <div
@@ -53,26 +54,18 @@ export default function StarryNight() {
 
       {/* A LUA CHEIA REALISTA */}
       <div className="relative mb-12">
-        {/* Glow externo amarelado */}
         <div className="absolute inset-0 bg-[#fffde4]/5 blur-[100px] rounded-full scale-150" />
-        
-        {/* Corpo da Lua com cor marfim e crateras procedurais */}
         <div 
-        ref={moonRef}
-        className="w-48 h-48 md:w-64 md:h-64 bg-[#fefae0] rounded-full relative z-10 overflow-hidden shadow-[inset_-20px_-15px_40px_rgba(0,0,0,0.2)]"
+          ref={moonRef}
+          className="w-48 h-48 md:w-64 md:h-64 bg-[#fefae0] rounded-full relative z-10 overflow-hidden shadow-[inset_-20px_-15px_40px_rgba(0,0,0,0.2)]"
         >
-        {/* Crateras com opacidade maior e blur menor */}
-        <div className="absolute top-[15%] left-[25%] w-10 h-8 bg-gray-400/20 rounded-full blur-[4px] rotate-45" />
-        <div className="absolute top-[45%] left-[10%] w-14 h-12 bg-gray-400/15 rounded-full blur-[6px]" />
-        <div className="absolute bottom-[20%] right-[15%] w-20 h-16 bg-gray-400/20 rounded-full blur-[8px]" />
-        <div className="absolute top-[35%] right-[20%] w-8 h-8 bg-gray-400/25 rounded-full blur-[3px]" />
-        <div className="absolute bottom-[40%] left-[40%] w-6 h-6 bg-gray-400/30 rounded-full blur-[2px]" />
-        
-        {/* Detalhes de "mares" lunares (manchas maiores e mais suaves) */}
-        <div className="absolute top-[10%] right-[30%] w-24 h-20 bg-gray-500/10 rounded-full blur-xl" />
-
-        {/* Textura de porosidade para não ficar liso demais */}
-        <div className="absolute inset-0 opacity-[0.05] bg-[url('https://www.transparenttextures.com/patterns/p6.png')]" />
+          <div className="absolute top-[15%] left-[25%] w-10 h-8 bg-gray-400/20 rounded-full blur-[4px] rotate-45" />
+          <div className="absolute top-[45%] left-[10%] w-14 h-12 bg-gray-400/15 rounded-full blur-[6px]" />
+          <div className="absolute bottom-[20%] right-[15%] w-20 h-16 bg-gray-400/20 rounded-full blur-[8px]" />
+          <div className="absolute top-[35%] right-[20%] w-8 h-8 bg-gray-400/25 rounded-full blur-[3px]" />
+          <div className="absolute bottom-[40%] left-[40%] w-6 h-6 bg-gray-400/30 rounded-full blur-[2px]" />
+          <div className="absolute top-[10%] right-[30%] w-24 h-20 bg-gray-500/10 rounded-full blur-xl" />
+          <div className="absolute inset-0 opacity-[0.05] bg-[url('https://www.transparenttextures.com/patterns/p6.png')]" />
         </div>
       </div>
 
