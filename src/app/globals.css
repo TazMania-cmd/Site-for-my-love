@@ -1,12 +1,11 @@
 @import "tailwindcss";
 
-
 :root {
   /* Um roxo bem clarinho e suave para o fundo, quase um off-white lilás */
   --background: #f8f5ff; 
   
   /* Um roxo mediano/profundo para o texto, para manter o contraste e a elegância */
-  --foreground: #3b2a5c; 
+  --foreground: #000000; 
 }
 
 body {
@@ -18,4 +17,9 @@ body {
 /* Remove a barra de rolagem lateral para um look mais clean (estilo Pieter) */
 ::-webkit-scrollbar {
   display: none;
+}
+
+.font-sophisticated {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
 }
