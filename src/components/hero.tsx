@@ -1,32 +1,32 @@
 "use client";
-import { useEffect } from "react";
-import gsap from "gsap";
 
 export default function Hero() {
-  useEffect(() => {
-    gsap.to("#title-line-1", { y: 0, duration: 1.5, ease: "power4.out", delay: 0.2 });
-    gsap.to("#title-line-2", { y: 0, duration: 1.5, ease: "power4.out", delay: 0.4 });
-  }, []);
-
   return (
-    <section className="h-screen flex items-center px-10 md:px-20 bg-(--background)">
-      <div className="flex flex-col">
-        {/* Linha 1 */}
-        <div className="overflow-hidden">
-          <h1 id="title-line-1" className="text-[12vw] font-light leading-none tracking-tighter translate-y-full text-(--foreground) opacity-90">
-            Nossa
-          </h1>
-        </div>
-        
-        {/* Linha 2 com a fonte sofisticada */}
-        <div className="overflow-hidden -mt-4">
-          <h1 
-            id="title-line-2" 
-            className="text-[13vw] font-playfair italic leading-none translate-y-full text-[#8b5cf6]"
-          >
-            história.
-          </h1>
-        </div>
+    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+      {/* Camada 1: O Vídeo de Fundo */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-60" // Opacidade para não ofuscar o título
+        >
+          <source src="/videos/download.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeos.
+        </video>
+        {/* Overlay para dar contraste ao texto */}
+        <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]" />
+      </div>
+
+      {/* Camada 2: O Conteúdo (Título) */}
+      <div className="relative z-10 text-center">
+        <h1 className="text-6xl md:text-8xl font-playfair italic text-white drop-shadow-2xl">
+          Nossa História
+        </h1>
+        <p className="mt-4 text-white/80 uppercase tracking-[0.5em] text-sm">
+          Goiânia • Desde 12 de Abril
+        </p>
       </div>
     </section>
   );
