@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
 
-
 :root {
-  --background: #ffffff;
-  --foreground: #111111;
+  /* Um roxo bem clarinho e suave para o fundo, quase um off-white lilás */
+  --background: #f8f5ff; 
+  
+  /* Um roxo mediano/profundo para o texto, para manter o contraste e a elegância */
+  --foreground: #3b2a5c; 
 }
 
 body {

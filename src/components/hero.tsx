@@ -13,10 +13,11 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="h-screen flex items-center px-10 md:px-20 bg-white">
+    <section className="h-screen flex items-center px-10 md:px-20 bg-white gap-10PX">
       <div className="overflow-hidden">
         <h1 id="title" className="text-[15vw] font-bold leading-[0.8] tracking-tighter translate-y-full">
-          NARRATIVE <br /> DRIVEN.
+          NOSSA <br /> HISTORIA.
+
         </h1>
       </div>
     </section>

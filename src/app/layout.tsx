@@ -3,7 +3,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
-  title: "Editor Portfolio | 2026",
+  title: "Para o meu Amor.",
   description: "Edição de vídeo e narrativas visuais",
 };
 
